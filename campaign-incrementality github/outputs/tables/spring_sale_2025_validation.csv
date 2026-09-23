@@ -1,0 +1,8 @@
+test,result,statistic,threshold,detail
+Rolling-origin backtest,PASS,0.0199,0.08,"22 origins, 5-week horizon, mean absolute error 1.99%"
+In-time placebo,PASS,0.007,0.02,fake activation 2024-09-30 (26 weeks early) returns +0.70%
+In-space placebo,PASS,0.0909,0.1,10 untreated cohorts of 1000 properties; null sd 0.53%; observed +7.59% ranks 1/11
+Comp-set displacement,PASS,-0.0294,-0.05,untreated comp set moves -2.94% over the same weeks; netted off the headline as displacement
+Control-pool leakage (underpowered),PASS,-0.0264,-0.05,"control pool reads -2.6% against unaffected demand, detectable only to +/-1.5% -- rules out gross contamination, cannot confirm the 1-2% that would matter; design does not use the pool as a control"
+Relationship stability,PASS,0.0189,0.045,forecast error 1.04x from older to recent origins (1.96% to 2.03%); early vs late pre-period counterfactuals diverge 1.89%
+Specification sensitivity,FAIL,0.0348,0.025,9 validated variants span +8.00% to +11.47% (3.48% wide)

@@ -1,0 +1,35 @@
+# Flagship Q4 promotional campaign: deep discount, broad participation.
+# Bulk-loaded deal: a single activation date across all participating
+# properties, which is what makes an interrupted time series appropriate.
+name: Black Friday Campaign
+activation_week: 2024-11-25   # must be a Monday
+campaign_scope: global_simultaneous   # promotion runs in every market at once
+pre_weeks: 78                 # 18 months: two annual cycles, one seasonal repeat
+post_weeks: 8
+transition_weeks: 1           # rate-plan propagation week, excluded from both windows
+
+outcomes: [gbv, room_nights]
+primary_outcome: gbv
+
+model:
+  backend: bsts
+  design_version: cross_product_control   # see PREDICTOR_SETS in config.py for Design A-Design D
+  control_prior_campaign: true
+  prior_campaign_weeks: 10
+  annual_fourier_terms: 2
+  log_transform: true
+  alpha: 0.10
+  n_bootstrap: 2000
+  block_length: 4
+
+economics:
+  take_rate: 0.155
+  variable_cost_rate: 0.030
+  discount_depth: 0.12
+  discounted_booking_share: 0.42
+  discount_funded_share: 0.10
+  fixed_campaign_cost: 1200000
+
+notes: >
+  Primary readout for the annual promotional review. Comp-set displacement is
+  netted off the headline before the value is booked.

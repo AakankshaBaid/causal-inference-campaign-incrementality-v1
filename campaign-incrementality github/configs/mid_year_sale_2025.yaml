@@ -1,0 +1,38 @@
+# Mid-year sale 2025 -- an off-peak campaign.
+# Chosen as the primary reference campaign because the measurement window sits
+# away from seasonal spikes. Peak-trading campaigns move marketplace demand
+# enough to contaminate the control series, which weakens every design; a
+# mid-year window is where this method is on its firmest ground.
+name: Mid Year Sale 2025
+activation_week: 2025-06-30          # must be a Monday
+campaign_scope: global_simultaneous  # promotion runs in every market at once
+pre_weeks: 78
+post_weeks: 6
+transition_weeks: 1
+
+outcomes: [gbv, room_nights]
+primary_outcome: gbv
+materiality_threshold: 0.01
+
+model:
+  backend: bsts
+  design_version: cross_product_control
+  control_prior_campaign: true
+  prior_campaign_weeks: 10
+  annual_fourier_terms: 2
+  log_transform: true
+  alpha: 0.10
+  n_bootstrap: 2000
+  block_length: 4
+
+economics:
+  take_rate: 0.155
+  variable_cost_rate: 0.030
+  discount_depth: 0.09
+  discounted_booking_share: 0.34
+  discount_funded_share: 0.09
+  fixed_campaign_cost: 700000
+
+notes: >
+  Off-peak campaign used as the primary reference run. Controls are
+  non-lodging production plus marketplace-wide demand signals.

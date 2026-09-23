@@ -1,0 +1,4 @@
+test,result,statistic,threshold,detail
+Cohorts are comparable,PASS,0.9907,0.8,"pre-period weekly growth correlation with the treated cohort: compset 0.99, distant 0.99"
+Predictors unaffected by the campaign,PASS,0.0,0.02,5 predictors tested; none show a material campaign effect
+Quiet period reads as quiet,PASS,0.0118,0.035,placebo intervention 16 weeks early: treated -1.18%; compset -1.03%

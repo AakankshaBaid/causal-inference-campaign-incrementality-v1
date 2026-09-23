@@ -1,0 +1,236 @@
+{
+  "config": {
+    "name": "Mid Year Sale 2025",
+    "activation_week": "2025-06-30",
+    "pre_weeks": 78,
+    "post_weeks": 6,
+    "transition_weeks": 1,
+    "campaign_scope": "global_simultaneous",
+    "outcomes": [
+      "gbv",
+      "room_nights"
+    ],
+    "primary_outcome": "gbv",
+    "materiality_threshold": 0.01,
+    "model": {
+      "backend": "bsts",
+      "design_version": "cross_product_control",
+      "regressors": [],
+      "control_prior_campaign": true,
+      "prior_campaign_weeks": 10,
+      "prior_campaign_ramp_weeks": 2,
+      "prior_campaign_decay": 0.06,
+      "annual_fourier_terms": 2,
+      "holiday_iso_weeks": {
+        "peak_shopping": [
+          47,
+          48
+        ],
+        "holiday_lull": [
+          51,
+          52
+        ],
+        "new_year": [
+          1,
+          2
+        ]
+      },
+      "log_transform": true,
+      "alpha": 0.1,
+      "n_bootstrap": 2000,
+      "block_length": 4
+    },
+    "economics": {
+      "take_rate": 0.155,
+      "variable_cost_rate": 0.03,
+      "discount_depth": 0.09,
+      "discounted_booking_share": 0.34,
+      "discount_funded_share": 0.09,
+      "fixed_campaign_cost": 700000
+    },
+    "notes": "Off-peak campaign used as the primary reference run. Controls are non-lodging production plus marketplace-wide demand signals.\n",
+    "windows": {
+      "pre": [
+        "2024-01-01",
+        "2025-06-23"
+      ],
+      "post": [
+        "2025-07-07",
+        "2025-08-04"
+      ]
+    }
+  },
+  "headline": {
+    "gbv": {
+      "outcome": "gbv",
+      "backend": "bsts",
+      "actual": 440226987.1150852,
+      "counterfactual": 408016945.2194241,
+      "absolute_uplift": 32210041.895661056,
+      "relative_uplift": 0.07894290242857212,
+      "ci_low": 29214267.534523547,
+      "ci_high": 35524409.06157023,
+      "relative_ci_low": 0.07107874316964374,
+      "relative_ci_high": 0.08777905303304674,
+      "p_value": 0.0009995002498750624,
+      "significant": true,
+      "material": true,
+      "verdict": "material effect"
+    },
+    "room_nights": {
+      "outcome": "room_nights",
+      "backend": "bsts",
+      "actual": 2377655.494209813,
+      "counterfactual": 2145017.6344526033,
+      "absolute_uplift": 232637.85975720966,
+      "relative_uplift": 0.10845498704563218,
+      "ci_low": 216722.8030327079,
+      "ci_high": 249080.04101714632,
+      "relative_ci_low": 0.10029132509196964,
+      "relative_ci_high": 0.11701724768250486,
+      "p_value": 0.0009995002498750624,
+      "significant": true,
+      "material": true,
+      "verdict": "material effect"
+    }
+  },
+  "displacement_relative": -0.041061981346312094,
+  "displacement_ci": [
+    -0.0542498165643973,
+    -0.029026619017486325
+  ],
+  "displacement_dollars": 19261530.964095533,
+  "net_incremental_bookings": 12948510.931565523,
+  "incrementality": {
+    "gross_lift": 0.07894290242857212,
+    "gross_ci_low": 0.07107874316964374,
+    "gross_ci_high": 0.08777905303304674,
+    "displacement_rate": -0.041061981346312094,
+    "displacement_value": -19261530.964095533,
+    "displacement_significant": true,
+    "regime": "cannibalisation",
+    "net_lift": 0.03173522836068009,
+    "net_ci_low": 0.014734073939828401,
+    "net_ci_high": 0.04873638278153178,
+    "net_value": 12948510.931565523
+  },
+  "drivers": [
+    {
+      "driver": "Traffic (visits)",
+      "metric": "visits",
+      "lift": 0.009330171637577255,
+      "ci_low": -0.0009992882708610533,
+      "ci_high": 0.01904143111404018,
+      "log_contribution": 0.009286914442718777,
+      "significant": false,
+      "share_of_movement": 0.07200212145370403
+    },
+    {
+      "driver": "Conversion rate",
+      "metric": "cvr",
+      "lift": 0.08508912173940604,
+      "ci_low": 0.0814563578567181,
+      "ci_high": 0.08853158880131352,
+      "log_contribution": 0.08166212347111708,
+      "significant": true,
+      "share_of_movement": 0.6331323679787666
+    },
+    {
+      "driver": "Length of stay",
+      "metric": "los",
+      "lift": 0.010721281526852982,
+      "ci_low": 0.009431298534953588,
+      "ci_high": 0.011853637643304441,
+      "log_contribution": 0.010664216102043511,
+      "significant": true,
+      "share_of_movement": 0.08268044114371031
+    },
+    {
+      "driver": "Average daily rate",
+      "metric": "adr",
+      "lift": -0.026996761482681653,
+      "ci_low": -0.027807175772553483,
+      "ci_high": -0.02602281168394153,
+      "log_contribution": -0.027367868417993404,
+      "significant": true,
+      "share_of_movement": 0.2121850694238191
+    }
+  ],
+  "driver_residual": 0.0018718316284540154,
+  "net_relative_uplift": 0.03173522836068009,
+  "economics": {
+    "incremental_bookings": 12948510.931565523,
+    "baseline_bookings": 408016945.2194241,
+    "total_bookings": 440226987.1150852,
+    "incremental_revenue": 2007019.194392656,
+    "incremental_contribution": 1618563.8664456904,
+    "discounted_bookings": 149677175.61912897,
+    "discount_value_granted": 14803237.149144623,
+    "subsidy_on_baseline": 13522615.188879902,
+    "subsidy_on_incremental": 1280621.9602647221,
+    "funded_discount_cost": 1332291.3434230161,
+    "fixed_cost": 700000.0,
+    "total_cost": 2032291.3434230161,
+    "net_value": -413727.47697732574,
+    "return_on_spend": 0.7964231465551199,
+    "net_roi": -0.20357685344488005,
+    "breakeven_relative_uplift": 0.03887716376282574,
+    "breakeven_discount_depth": 0.06383566135143641
+  },
+  "economics_gross_of_displacement": {
+    "incremental_bookings": 32210041.895661056,
+    "baseline_bookings": 408016945.2194241,
+    "total_bookings": 440226987.1150852,
+    "incremental_revenue": 4992556.493827464,
+    "incremental_contribution": 4026255.236957632,
+    "discounted_bookings": 149677175.61912897,
+    "discount_value_granted": 14803237.149144623,
+    "subsidy_on_baseline": 11617628.61001331,
+    "subsidy_on_incremental": 3185608.539131313,
+    "funded_discount_cost": 1332291.3434230161,
+    "fixed_cost": 700000.0,
+    "total_cost": 2032291.3434230161,
+    "net_value": 1993963.8935346159,
+    "return_on_spend": 1.981140769992237,
+    "net_roi": 0.981140769992237,
+    "breakeven_relative_uplift": 0.03887716376282574,
+    "breakeven_discount_depth": 0.198024374924495
+  },
+  "validation_passed": true,
+  "assumptions_met": true,
+  "assumption_checks": [
+    {
+      "test": "Cohorts are comparable",
+      "result": "PASS",
+      "statistic": 0.9852,
+      "threshold": 0.8,
+      "detail": "pre-period weekly growth correlation with the treated cohort: compset 0.99, distant 0.98"
+    },
+    {
+      "test": "Predictors unaffected by the campaign",
+      "result": "PASS",
+      "statistic": 0.0,
+      "threshold": 0.02,
+      "detail": "5 predictors tested; none show a material campaign effect"
+    },
+    {
+      "test": "Quiet period reads as quiet",
+      "result": "PASS",
+      "statistic": 0.0222,
+      "threshold": 0.035,
+      "detail": "placebo intervention 16 weeks early: treated +2.00%; compset +2.22%"
+    }
+  ],
+  "stacking": {
+    "stack_enabled_properties": 1140,
+    "stack_disabled_properties": 1360,
+    "stack_enabled_uplift": 0.030460308776599363,
+    "stack_disabled_uplift": 0.007814713254767016,
+    "stacking_marginal_value": 0.022469998923410967,
+    "ci_low": 0.016278653631918952,
+    "ci_high": 0.028699062961018026,
+    "p_value": 2.03430772288143e-09,
+    "parallel_trends_p": 1.1224783860839433e-05,
+    "cuped_variance_reduction": 0.48659491711075165
+  }
+}

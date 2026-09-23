@@ -1,0 +1,10 @@
+variant,family,defensible,relative_uplift,delta_vs_headline
+pre-window 52w,window,True,0.09162487262075425,0.015769867347659006
+pre-window 78w,window,True,0.09321039086446925,0.017355385591374006
+pre-window 104w,window,True,0.09486668044251778,0.019011675169422537
+drop other_products_volume,regressors,True,0.07998331137283521,0.0041283060997399645
+drop meta_impressions,regressors,True,0.10314950245290366,0.02729449717980842
+drop search_clicks,regressors,True,0.09073732271971591,0.014882317446620663
+drop destination_queries,regressors,True,0.09250975309382747,0.01665474782073223
+drop market_visitors,regressors,True,0.11473712345278408,0.03888211817968884
+no seasonality terms,seasonality,True,0.09917543146936936,0.023320426196274113
