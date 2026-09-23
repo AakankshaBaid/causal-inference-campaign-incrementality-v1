@@ -114,11 +114,19 @@ The deal persuaded people who were already browsing. It did not bring new people
 
 Member-only stacked discounts add a further **+2.3%** where offered.
 
+**Baseline vs actual** *(Exhibit C)* ·
+<img width="1186" height="510" alt="mid_year_sale_2025_exhibit_c_baseline" src="https://github.com/user-attachments/assets/57fa46ec-2e2f-49d5-8670-30cfa7a168c2" />
+
+**Lift build** *(Exhibit D)*
+<img width="1342" height="471" alt="mid_year_sale_2025_exhibit_d_lift_build" src="https://github.com/user-attachments/assets/39a2b82e-a9cc-4977-af60-02b14c9152c1" />
+
 ---
 
 ## Model Validation
 
 Before reporting any number, the method checks its own assumptions and fails loudly if they don't hold.
+<img width="1454" height="739" alt="mid_year_sale_2025_exhibit_h_assumptions" src="https://github.com/user-attachments/assets/b819c550-1cc1-44e7-8b80-62f7950d48b2" />
+
 
 | Check | Question | Result |
 | --- | --- | --- |
@@ -127,6 +135,8 @@ Before reporting any number, the method checks its own assumptions and fails lou
 | Quiet-period test | Does a period with no campaign read as no campaign? | **Pass** |
 
 Then seven further tests, **all passing**: forecast accuracy (1.9% error), fake-campaign test, random-group test, competitor displacement, comparison-group contamination, relationship stability, and window cherry-picking.
+<img width="1646" height="485" alt="mid_year_sale_2025_exhibit_f_validation" src="https://github.com/user-attachments/assets/bf0bcdeb-2b4b-416c-b8c3-28ff60d850cd" />
+
 
 ### Where this method holds
 
